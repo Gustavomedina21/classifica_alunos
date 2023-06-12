@@ -1,0 +1,48 @@
+// Função para calcular a média de um array de números
+function calcularMedia(numeros) {
+  var soma = 0;
+  for (var i = 0; i < numeros.length; i++) {
+    soma += numeros[i];
+  }
+  var media = soma / numeros.length;
+  return media;
+}
+
+// Função para classificar alunos com base na média
+function classificarAlunos(alunos) {
+  for (var i = 0; i < alunos.length; i++) {
+    var aluno = alunos[i];
+    if (aluno.media >= 7) {
+      aluno.status = "Aprovado";
+    } else if (aluno.media >= 5) {
+      aluno.status = "Recuperação";
+    } else {
+      aluno.status = "Reprovado";
+    }
+  }
+}
+
+// Array de alunos
+var alunos = [
+  { nome: "João", notas: [7, 8, 6] },
+  { nome: "Maria", notas: [5, 6, 4] },
+  { nome: "Pedro", notas: [9, 7, 8] }
+];
+
+// Calcular a média de cada aluno
+for (var i = 0; i < alunos.length; i++) {
+  var aluno = alunos[i];
+  aluno.media = calcularMedia(aluno.notas);
+}
+
+// Classificar os alunos com base na média
+classificarAlunos(alunos);
+
+// Exibir informações dos alunos
+for (var i = 0; i < alunos.length; i++) {
+  var aluno = alunos[i];
+  console.log("Aluno: " + aluno.nome);
+  console.log("Média: " + aluno.media);
+  console.log("Status: " + aluno.status);
+  console.log("-----------------------");
+}
